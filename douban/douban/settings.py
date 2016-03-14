@@ -15,10 +15,33 @@ SPIDER_MODULES = ['douban.spiders']
 NEWSPIDER_MODULE = 'douban.spiders'
 DOWNLOAD_HANDLERS = {'s3': None}
 
-DOWNLOAD_DELAY = 2
-RANDOMIZE_DOWNLOAD_DELAY = True
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:44.0) Gecko/20100101 Firefox/44.0'
-COOKIES_ENABLED = True
+# set mysql parameters
+SQLDB = {
+    'host': 'localhost',
+    'port': 3306,
+    'user': 'root',
+    'passwd': 'mysqlpasswd',
+    'db': 'douban'
+}
+
+DOWNLOADER_MIDDLEWARES = {
+    # 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': 400,
+    'douban.middlewares.UserAgentMiddlewares': 401,
+}
+
+ITEM_PIPELINES = {
+    'douban.pipelines.DoubanPipeline': 300,
+}
+
+DOWNLOAD_DELAY=3
+
+LOG_LEVEL = 'INFO'
+
+
+# Close spider extension
+# CLOSESPIDER_ITEMCOUNT = 3000
+
+COOKIES_ENABLED = False
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'douban (+http://www.yourdomain.com)'

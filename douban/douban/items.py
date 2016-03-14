@@ -11,9 +11,11 @@ import scrapy
 class DoubanItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    rank = scrapy.Field()
     name = scrapy.Field()
-    score = scrapy.Field()
-    number = scrapy.Field()
-    desc = scrapy.Field()
-    url = scrapy.Field()
+    director = scrapy.Field()
+    doubanscore = scrapy.Field()
+    # imdbscore = scrapy.Field()
+    people = scrapy.Field()
+    description = scrapy.Field()
 
