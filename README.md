@@ -1,5 +1,5 @@
 # Scrapy Crawler
 
-Some crawlers project made by scrapy..
+Some crawler projects made by scrapy..
 
 @Fibears
